@@ -1,0 +1,103 @@
+body
+{
+    background-image: url(../../resources/images/felt_coaster.png);
+}
+
+.l0
+{
+    background-color: #f11194;
+    color: #ffc0cb;
+    font-size: 30px;
+    font-weight: bold;
+    height: 50px;
+    text-align: center;
+}
+
+.l1, .l2, .l3, .l4, .l5, .l6, .l7, .l8, .l9, .l10, .l11, .l12, .l13, .l14, .l15, .l16, .l17
+{
+    height: 50px;
+}
+
+.l1
+{
+    background-color: #a5059b;
+}
+
+.l2
+{
+    background-color: #b8972b;
+}
+
+.l3
+{
+    background-color: #7390e0;
+}
+
+.l4
+{
+    background-color: #6ad467;
+}
+
+.l5
+{
+    background-color: #e05454;
+}
+
+.l6
+{
+    background-color: #51a0d4;
+}
+
+.l7
+{
+    background-color: #e4e265;
+}
+
+.l8
+{
+    background-color: #d29adb;
+}
+
+.l9
+{
+    background-color: #374875;
+}
+
+.l10
+{
+    background-color: #1eb619;
+}
+
+.l11
+{
+    background-color: #93893d;
+}
+
+.l12
+{
+    background-color: #de7927;
+}
+
+.l13
+{
+    background-color: #8e41bb;
+}
+
+.l14
+{
+    background-color: #aef1b2;
+}
+
+.l15
+{
+    background-color: #0d86f0;
+}
+.l16
+{
+    background-color: #8a037f;
+}
+
+.l17
+{
+    background-color: #deab71;
+}
