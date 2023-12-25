@@ -33,7 +33,7 @@
 color:rgb(128, 128, 128);
 font-size: xx-large;">
     <h1 style="text-align:center">
-        MOUSEBOT </h1>
+         Robot Controller </h1>
     <p style="text-align: center;">
         X: <span id="x_coordinate"> </span>
         Y: <span id="y_coordinate"> </span>
@@ -47,8 +47,8 @@ font-size: xx-large;">
             connection.send('Connect ' + new Date());
         };
         connection.onerror = function (error) {
-            console.log('WebSocket Error ', error);
-            alert('WebSocket Error ', error);
+           // console.log('WebSocket Error ', error);
+           // alert('WebSocket Error ', error);
         };
         connection.onmessage = function (e) {
             console.log('Server: ', e.data);
@@ -92,7 +92,7 @@ font-size: xx-large;">
 
         var width, height, radius, x_orig, y_orig;
         function resize() {
-            width = window.outerWidth;
+            width = window.innerWidth;
             radius = 200;
             height = radius * 6.5;
             ctx.canvas.width = width;
