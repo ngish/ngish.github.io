@@ -21,6 +21,7 @@
       background-color: #3498db;
       border-radius: 50%;
       cursor: pointer;
+      touch-action: none; /* Disable touch action to prevent default touch behavior */
       transition: all 0.3s ease;
     }
 
@@ -47,24 +48,36 @@
 
   let isDragging = false;
 
-  joystick.addEventListener('mousedown', (e) => {
+  // Mouse events
+  joystick.addEventListener('mousedown', startDragging);
+  document.addEventListener('mousemove', handleMove);
+  document.addEventListener('mouseup', stopDragging);
+
+  // Touch events
+  joystick.addEventListener('touchstart', startDragging);
+  document.addEventListener('touchmove', handleMove);
+  document.addEventListener('touchend', stopDragging);
+
+  function startDragging(e) {
     isDragging = true;
     joystick.style.transition = 'none';
-  });
+    e.preventDefault(); // Prevent default touch behavior
+  }
 
-  document.addEventListener('mousemove', (e) => {
+  function handleMove(e) {
     if (isDragging) {
-      moveJoystick(e);
+      const touch = e.touches ? e.touches[0] : e;
+      moveJoystick(touch);
     }
-  });
+  }
 
-  document.addEventListener('mouseup', () => {
+  function stopDragging() {
     if (isDragging) {
       isDragging = false;
       joystick.style.transition = 'all 0.3s ease';
       resetJoystickPosition();
     }
-  });
+  }
 
   function moveJoystick(e) {
     const containerRect = joystickContainer.getBoundingClientRect();
