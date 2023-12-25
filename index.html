@@ -92,7 +92,7 @@ font-size: xx-large;">
 
         var width, height, radius, x_orig, y_orig;
         function resize() {
-            width = window.innerWidth;
+            width = window.outerWidth;
             radius = 200;
             height = radius * 6.5;
             ctx.canvas.width = width;
