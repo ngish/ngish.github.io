@@ -60,7 +60,7 @@ font-size: xx-large;">
         var width, height, radius, x_orig, y_orig;
         function resize() {
             width = window.innerWidth;
-            radius = 10;
+            radius = 100;
             height = radius * 6.5;
             ctx.canvas.width = width;
             ctx.canvas.height = height;
@@ -73,7 +73,7 @@ font-size: xx-large;">
             y_orig = height / 3;
 
             ctx.beginPath();
-            ctx.arc(x_orig, y_orig, radius * 10, 0, Math.PI * 2, true);
+            ctx.arc(x_orig, y_orig, radius + 50, 0, Math.PI * 2, true);
             ctx.fillStyle = '#ECE5E5';
             ctx.fill();
         }
