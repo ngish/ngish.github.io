@@ -1,67 +1,78 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Caroline Hagen</title>
-    <link href="./resources/css/index.css" type="text/css" rel="stylesheet">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Joystick Website</title>
+  <style>
+    #joystick-container {
+      position: relative;
+      width: 200px;
+      height: 200px;
+      border: 2px solid #333;
+      border-radius: 50%;
+      overflow: hidden;
+    }
+
+    #joystick {
+      position: absolute;
+      width: 50px;
+      height: 50px;
+      background-color: #3498db;
+      border-radius: 50%;
+      cursor: pointer;
+    }
+  </style>
 </head>
 <body>
-    <!-- Banner Section-->
-    <div class = "l0">
-        Caroline Hagen
-    </div>
-    <div class = "l1">
 
-    </div>
-    <div class = "l2">
-        Scroll to the bottom of this page and look for the pink text
-    </div> 
-    <div class = "l3">
+<div id="joystick-container">
+  <div id="joystick"></div>
+</div>
 
-    </div>
-    <div class = "l4">
+<script>
+  const joystickContainer = document.getElementById('joystick-container');
+  const joystick = document.getElementById('joystick');
 
-    </div>
-    <div class = "l5">
+  let isDragging = false;
 
-    </div>
-    <div class = "l6">
+  joystick.addEventListener('mousedown', (e) => {
+    isDragging = true;
+    joystick.style.transition = 'none';
+  });
 
-    </div>
-    <div class = "l7">
+  document.addEventListener('mousemove', (e) => {
+    if (isDragging) {
+      moveJoystick(e);
+    }
+  });
 
-    </div>
-    <div class = "l8">
+  document.addEventListener('mouseup', () => {
+    if (isDragging) {
+      isDragging = false;
+      joystick.style.transition = 'all 0.3s ease';
+      resetJoystickPosition();
+    }
+  });
 
-    </div>
-    <div class = "l9">
+  function moveJoystick(e) {
+    const containerRect = joystickContainer.getBoundingClientRect();
+    const x = e.clientX - containerRect.left - containerRect.width / 2;
+    const y = e.clientY - containerRect.top - containerRect.height / 2;
 
-    </div>
-    <div class = "l10">
+    const distance = Math.min(joystickContainer.clientWidth / 2, Math.sqrt(x**2 + y**2));
+    const angle = Math.atan2(y, x);
 
-    </div>
-    <div class = "l11">
+    const joystickX = distance * Math.cos(angle);
+    const joystickY = distance * Math.sin(angle);
 
-    </div>
-    <div class = "l12">
+    joystick.style.transform = `translate(${joystickX}px, ${joystickY}px)`;
+  }
 
-    </div>
-    <div class = "l13">
+  function resetJoystickPosition() {
+    joystick.style.transform = 'translate(0, 0)';
+  }
+</script>
 
-    </div>
-    <div class = "l14">
-
-    </div>
-    <div class = "l15">
-
-    </div>
-    <div class = "l16">
-
-    </div>
-    <div class = "l17">
-
-    </div>
 </body>
 </html>
