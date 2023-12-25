@@ -21,7 +21,13 @@
       background-color: #3498db;
       border-radius: 50%;
       cursor: pointer;
-      transition: all 0.3s ease; /* Added transition property for smooth movement */
+      transition: all 0.3s ease;
+    }
+
+    #joystick-info {
+      margin-top: 20px;
+      font-family: Arial, sans-serif;
+      text-align: center;
     }
   </style>
 </head>
@@ -31,9 +37,13 @@
   <div id="joystick"></div>
 </div>
 
+<div id="joystick-info">Distance: <span id="distance">0</span>px, Angle: <span id="angle">0</span> rad</div>
+
 <script>
   const joystickContainer = document.getElementById('joystick-container');
   const joystick = document.getElementById('joystick');
+  const distanceSpan = document.getElementById('distance');
+  const angleSpan = document.getElementById('angle');
 
   let isDragging = false;
 
@@ -68,14 +78,18 @@
     const joystickY = distance * Math.sin(angle);
 
     joystick.style.transform = `translate(${joystickX}px, ${joystickY}px)`;
+
+    // Update joystick info
+    distanceSpan.textContent = distance.toFixed(2);
+    angleSpan.textContent = angle.toFixed(2);
   }
 
   function resetJoystickPosition() {
     joystick.style.transform = 'translate(0, 0)';
+    distanceSpan.textContent = '0.00';
+    angleSpan.textContent = '0.00';
   }
 </script>
 
 </body>
 </html>
-
-
